@@ -16,7 +16,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-
 @RunWith(SpringRunner.class)  // @RunWith注解指定了测试运行器为SpringRunner，可以使用Spring的依赖注入功能
 @SpringBootTest
 @ContextConfiguration(classes = CommunityApplication.class)  // @ContextConfiguration注解指定了加载上下文的配置类为CommunityApplication，这意味着在测试中，将会加载CommunityApplication类中定义的Bean
