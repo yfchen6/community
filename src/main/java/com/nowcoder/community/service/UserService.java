@@ -91,7 +91,7 @@ public class UserService implements CommunityConstant {
         // 激活邮件
         Context context = new Context();
         context.setVariable("email", user.getEmail());
-        // http://127.0.0.1:8083/community/activation/101/code
+        // http://localhost:8080/community/activation/101/code
         String url = domain + contextPath + "/activation/" + user.getId() + "/" + user.getActivationCode();
         context.setVariable("url", url);
         String content = templateEngine.process("/mail/activation", context);
@@ -165,8 +165,12 @@ public class UserService implements CommunityConstant {
         return loginTicketMapper.selectByTicket(ticket);
     }
 
-    public int updateHeader(int userId, String headerUrl) {
-        return userMapper.updateHeader(userId, headerUrl);
+    public void updateHeader(int userId, String headerUrl) {
+        userMapper.updateHeader(userId, headerUrl);
+    }
+
+    public User findUserByName(String username) {
+        return userMapper.selectByName(username);
     }
 
 }
